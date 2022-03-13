@@ -1,0 +1,79 @@
+#!/usr/bin/awk -f
+##
+##  markin - interpolate shell script into Markdown files
+##
+##  Author:    Kevin Ernst <ernstki -at- mail.uc.edu>
+##  Date:      12 March 2022
+##  Homepage:  https://github.com/ernstki/markin
+##  License:   MIT
+##
+BEGIN { loop_max = 10 }
+
+# <!-- {{{begin
+/^ *<!-- *{+begin */ {
+    c = LOOP_MAX
+    i = 0
+    print; getline
+
+    # }}} -->
+    while (!/^ *}+ *--> *$/) {
+        print
+        cmd = "$SHELL -c '" $0 "'"
+
+        while (cmd | getline) {
+            output[i++] = $0
+        }
+
+        close(cmd)
+        # “…[W]hen a file or pipe is opened for output, awk remembers the file
+        #  name or command associated with it, and subsequent writes to the same
+        #  file or command are appended to the previous writes. The file or pipe
+        #  stays open until awk exits.
+        #
+        #  This implies that special steps are necessary in order to read the
+        #  same file again from the beginning, or to rerun a shell command
+        #  (rather than reading more output from the same command). The close()
+        #  function makes these things possible[.]”
+        #
+        #  -- https://www.gnu.org/software/gawk/manual/html_node/Getline_002fPipe.html
+
+        c -= 1
+        if (c == 0) {
+            print "ERROR: Runaway loop looking for '}}}-->'. " > "/dev/stderr"
+            exit 1
+        } 
+
+        getline
+    }  # while not '}}}'
+
+}  # within {{{begin …}}}
+
+# }}} -->
+/^ *}+ *--> *$/ {
+    print; getline
+    c = LOOP_MAX
+
+    # <!-- {{{end}}} -->
+    while (!/^ *<!-- *{+end}+ *--> *$/) {
+        c -= 1
+        if (c == 0) {
+            print "ERROR: Runaway loop looking for '<!--{{{end}}}-->'. " > "/dev/stderr"
+            exit 1
+        }
+
+        getline
+    }
+
+    # the order of `for (l in output)` is not defined by POSIX, so…
+    # print "**Lines in putput: " length(output)
+    for (i = 0; i < length(output); i++) {
+        print output[i]
+    }
+
+    delete output
+}
+
+{
+    # otherwise
+    print
+}

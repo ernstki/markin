@@ -1,0 +1,6 @@
+# editor detritus
+.*sw?
+*~
+
+# Finder turds
+.DS_Store

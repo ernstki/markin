@@ -1,0 +1,15 @@
+Beginning stuff:
+<!-- {{{begin
+echo "Hello world!"
+}}} -->
+whatever was there before
+<!-- {{{end}}} -->
+
+Ending stuff:
+<!-- {{{begin
+echo "-------"
+echo "THE END"
+echo "-------"
+}}} -->
+whatever was there before
+<!-- {{{end}}} -->
