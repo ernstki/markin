@@ -74,6 +74,7 @@ BEGIN {
             exit 1
         }
 
+        # just consume these lines; they'll be replaced with the new output
         getline
     }
 
