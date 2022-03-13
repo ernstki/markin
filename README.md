@@ -79,12 +79,13 @@ Which renders as:
 >       ⋮
 
 Note that—just like Cog, and _unlike_ conventional template languages—the bits
-used to programmaticaly generate the document output are preserved in-place.
+used to programmatically generate the document output are preserved in-place.
 There is no separate "template file" to have to deal with.
 
 
 Installation
 ------------
+
 Assuming a reasonably default macOS or Linux box and the Bash shell:
 
 ```bash
@@ -154,7 +155,8 @@ that's [a bug](../../issues).
 
 However, macOS and probably BSD have no problem with multiple arguments in the
 shebang line, so if for some odd reason you wanted to use your
-`/opt/local/bin/gawk` from MacPorts, you can do so:
+`/opt/local/bin/gawk` from MacPorts, you can do so by updating the first line
+of the `markin` script to say:
 
     #!/usr/bin/env gawk -f
 
