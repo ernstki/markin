@@ -12,6 +12,9 @@ of your program's `--help` option into a Markdown README.
 Quickstart
 ----------
 
+_Download [`markin`](markin), put it in your `$PATH`, and make it executable.
+See the "[Installation](#installation)" section for a step-by-step._
+
 Given:
 
 ```markdown
