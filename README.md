@@ -201,6 +201,12 @@ Credits
     seemed like a lot to remember for what is essentially a one-liner shell
     script.
 
+
+License
+-------
+
+[MIT](LICENSE).
+
 [cog]: https://nedbatchelder.com/code/cog
 [fm]: http://vimdoc.sourceforge.net/htmldoc/options.html#'foldmarker'
 [m4]: https://mbreen.com/m4.html#toc5
