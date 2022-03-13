@@ -45,7 +45,7 @@ BEGIN {
         #  (rather than reading more output from the same command). The close()
         #  function makes these things possible[.]”
         #
-        #  -- https://www.gnu.org/software/gawk/manual/html_node/Getline_002fPipe.html
+        #  -- https://www.gnu.org/software/gawk/manual/html_node/Close-Files-And-Pipes.html
 
         c -= 1
         if (c == 0) {
