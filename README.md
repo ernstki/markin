@@ -114,11 +114,14 @@ which markin
 Other tips
 ----------
 
-If you have `sponge` from [moreutils][mu]…
+If you have [moreutils][mu] installed, you can update the file in-place with
+`sponge`:
 
 ```bash
 markin README.md | sponge README.md
 ```
+
+…at least until #3 is implemented.
 
 Test run to see changes side-by-side with the original:
 
@@ -207,17 +210,18 @@ Multi-line strings, line continuation markers (_e.g._, in Bash, `\`), and
 shebangs (alternate interpreters) could be supported later. Pretty easily,
 I think!
 
-Its similarity to Cog's `cog`/`end` markers, and able to `:set
+Its similarity to Cog's `cog`/`end` markers, and being able to `:set
 foldmethod=marker` in Vim and fold the Markin blocks is nifty and all, but
-I still think it's way more _stuff_ than should be necessary to get the job
-done.
+I still think you have to type way more _symbols_ than should be necessary to
+get the job done.
 
 
 Credits
 -------
 
 * [Cog][] by Ned Batchelder
-  * A really neat tool! However, I work mostly in shell script, so
+  * A really neat tool! However, for small automation tasks like this, I work
+    mostly in shell script, so
 
     ```python
     import cog
