@@ -161,8 +161,8 @@ of the `markin` script to say:
     #!/usr/bin/env gawk -f
 
 Linux doesn't [doesn't support this][wps], but unless you're on an embedded
-system, your `/usr/bin/awk` is probably `gawk` anyway. See [here][shebang] for
-more details and history of the Unix `#!` line.
+system, your `/usr/bin/awk` is probably `gawk` anyway. See [here][shb] for more
+details and history of the Unix `#!` line.
 
 I have a preference for using tools that are _already_ on the system, rather
 than installing some extra package like Jinja, Mustache, or Template Toolkit.
