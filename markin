@@ -25,9 +25,11 @@ BEGIN {
         print
 
         # FIXME: write to a temp file instead, since this won't be able to
-        # handle embedded single quotes
+        # handle embedded single quotes; see #1
         cmd = "$SHELL -c '" $0 "'"
 
+        # FIXME: check return code from running `cm` and (optionally?) bail;
+        # probably want to run `$SHELL -e` so it bails after the first error
         while (cmd | getline) {
             output[i++] = $0
         }

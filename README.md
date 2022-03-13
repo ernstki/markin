@@ -20,7 +20,7 @@ My command's help output:
 
 <!-- {{{begin
 # single quotes are not supported--yet (see issue #1)
-mycommand --help | sed "/^/    /"
+mycommand --help | sed "s/^/    /"
 }}} -->
 <!-- {{{end}}} -->
 ```
@@ -49,7 +49,7 @@ My command's help output:
 
 <!-- {{{begin
 # single quotes are not supported--yet (see issue #1)
-mycommand --help | sed "/^/    /"
+mycommand --help | sed "s/^/    /"
 }}} -->
     mycommand - do the things
   
@@ -91,8 +91,8 @@ curl "$MARKIN" > ~/bin/markin
 chmod a+x ~/bin/markin
 ```
 
-It's quite rare for it not to be these days, but if `$HOME/bin` is not in your
-search path, you can update that in your `~/.bash_profile` or `~/.profile`
+It's quite rare for it _not_ to be these days, but if `$HOME/bin` is not in
+your search path, you can update that in your `~/.bash_profile` or `~/.profile`
 (whichever one you have):
 
 ```bash
@@ -110,23 +110,44 @@ which markin
 Other tips
 ----------
 
-If you have `sponge` from https://joeyh.name/code/moreutils…
+If you have `sponge` from [moreutils][mu]…
 
-```
+```bash
 markin README.md | sponge README.md
+```
 
-# just want to see what changed?
+Test run to see changes side-by-side with the original:
+
+```bash
 diff README.md <(markin README.md)
 
 # or
 sdiff --suppress-common-lines README.md <(markin README.md)
 ```
 
+…or, if you have [`delta`][delta]:
+
+
+```bash
+diff -u README.md <(markin README.md) | delta --side-by-side
+```
+
+That's a lot to type. Try this:
+
+```bash
+# in your ~/.bashrc, or wherever you put that stuff
+markin-diff() {
+    for file in "$@"; do
+        diff -u "$file" <(markin "$file") | delta --side-by-side
+    done
+}
+```
+
 Notes
 -----
 
 Markin itself is supposed to work with whatever `awk` you have; if it doesn't
-that's [a bug](../issues).
+that's [a bug](../../issues).
 
 However, macOS and probably BSD have no problem with multiple arguments in the
 shebang line, so if for some odd reason you wanted to use your
@@ -213,3 +234,5 @@ License
 [shb]: https://www.in-ulm.de/~mascheck/various/shebang/
 [wps]: https://en.wikipedia.org/wiki/Shebang_(Unix)#Character_interpretation
 [hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+[mu]: https://joeyh.name/code/moreutils
+[delta]: https://github.com/dandavison/delta
