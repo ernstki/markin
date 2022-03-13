@@ -21,7 +21,7 @@ Given:
 <!-- README.md -->
 My command's help output:
 
-<!-- {{{begin
+<!-- {{{markin
 # single quotes are not supported--yet (see issue #1)
 mycommand --help | sed "s/^/    /"
 }}} -->
@@ -50,7 +50,7 @@ This produces:
 <!-- README.md -->
 My command's help output:
 
-<!-- {{{begin
+<!-- {{{markin
 # single quotes are not supported--yet (see issue #1)
 mycommand --help | sed "s/^/    /"
 }}} -->
@@ -189,7 +189,7 @@ Bugs / mis-features
 
 Single quotes within shell commands are not currently supported (see #1). This
 means something as simple as `echo "Mornin', y'all!"` will crash the script.
-This is pretty unacceptable. The solution will be to read the entire `begin`
+This is pretty unacceptable. The solution will be to read the entire `markin`
 block into a temp file, invoke it with `$SHELL` and `getline` the results back
 in; but, for now, this is how it is.
 
@@ -207,9 +207,10 @@ Multi-line strings, line continuation markers (_e.g._, in Bash, `\`), and
 shebangs (alternate interpreters) could be supported later. Pretty easily,
 I think!
 
-Its similarity to Cog's begin/end markers, and able to `:set foldmethod=marker`
-in Vim and fold the Markin blocks is nifty and all, but I still think it's way
-more _stuff_ than should be necessary to get the job done.
+Its similarity to Cog's `cog`/`end` markers, and able to `:set
+foldmethod=marker` in Vim and fold the Markin blocks is nifty and all, but
+I still think it's way more _stuff_ than should be necessary to get the job
+done.
 
 
 Credits

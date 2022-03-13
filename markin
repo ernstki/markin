@@ -8,13 +8,13 @@
 ##  License:   MIT
 ##
 BEGIN {
-    # expect no more than this many lines between <!-- {{{begin …}}} --> and
+    # expect no more than this many lines between <!-- {{{markin …}}} --> and
     # <!-- {{{end}}} -->; catches runaway loops when end marker is missing
     INTERP_LINES_MAX = 10
 }
 
-# <!-- {{{begin
-/^ *<!-- *{+begin */ {
+# <!-- {{{markin
+/^ *<!-- *{+markin */ {
     c = INTERP_LINES_MAX
     i = 0
 
@@ -57,7 +57,7 @@ BEGIN {
 
     }  # while not '}}}'
 
-}  # within '<!-- {{{begin …}}} -->' (the shell command(s) to run)
+}  # within '<!-- {{{markin …}}} -->' (the shell command(s) to run)
 
 # }}} -->
 /^ *}+ *--> *$/ {

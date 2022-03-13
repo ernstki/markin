@@ -1,5 +1,5 @@
 Beginning stuff:
-<!-- {{{begin
+<!-- {{{markin
 # single-quotes are not supported (yet! see issue #1)
 echo "Hello world!" | sed "s/^/    ** /"
 }}} -->
@@ -7,7 +7,7 @@ whatever was there before
 <!-- {{{end}}} -->
 
 Ending stuff:
-<!-- {{{begin
+<!-- {{{markin
 echo "-------"
 echo "THE END"
 echo "-------"

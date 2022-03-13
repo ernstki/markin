@@ -1,12 +1,12 @@
 Beginning stuff:
-<!-- {{{begin
+<!-- {{{markin
 echo "Hello world!"
 }}} -->
 whatever was there before
 <!-- {{{end}}} -->
 
 Ending stuff:
-<!-- {{{begin
+<!-- {{{markin
 echo "-------"
 echo "THE END"
 echo "-------"
