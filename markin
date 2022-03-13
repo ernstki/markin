@@ -10,7 +10,7 @@
 BEGIN {
     # expect no more than this many lines between <!-- {{{markin …}}} --> and
     # <!-- {{{end}}} -->; catches runaway loops when end marker is missing
-    INTERP_LINES_MAX = 10
+    INTERP_LINES_MAX = 100
 }
 
 # <!-- {{{markin
