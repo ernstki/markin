@@ -1,0 +1,16 @@
+Beginning stuff:
+<!-- {{{begin
+# single-quotes are not supported (yet! see issue #1)
+echo "Hello world!" | sed "s/^/    ** /"
+}}} -->
+whatever was there before
+<!-- {{{end}}} -->
+
+Ending stuff:
+<!-- {{{begin
+echo "-------"
+echo "THE END"
+echo "-------"
+}}} -->
+whatever was there before
+<!-- {{{end}}} -->
